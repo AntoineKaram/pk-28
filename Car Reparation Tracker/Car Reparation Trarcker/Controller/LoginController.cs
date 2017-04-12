@@ -14,8 +14,7 @@ namespace CRT.Controller
         public string Login(User user)
         {
             User _user = loginManager.Login(user);
-            //HttpContext.Current.Session.Add("User", _user);
-            //HttpContext.Current.Session.Timeout = 20;
+
             if (_user.Role.Equals("Assurance"))
             {
                 return "../Assurance/HomeA.html";
@@ -38,8 +37,6 @@ namespace CRT.Controller
             }
             else
             {
-                //HttpContext.Current.Session.RemoveAll();
-                //HttpContext.Current.Session.Clear();
                 return "#";
             }
         }
