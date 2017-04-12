@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>CRT - Car Reparation Tracker</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="../../Plugin/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="../../Plugin/css/modern-business.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="../../Plugin/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Car Reparation Tracker</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="HomeA.html">User List</a>
+                    </li>
+                    <li>
+                        <a href="addUser.html">Add User</a>
+                    </li>
+                    <li>
+                        <a href="#">Cars List</a>
+                    </li>
+                    <li>
+                        <a href="#">Login</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Content-->
+    <div class="col-lg-4 col-lg-offset-4">
+        <div class="panel panel-default ">
+            <div class="panel-heading">
+                <h3 class="col-lg-offset-5">Add Car</h3>
+            </div>
+            <form class="panel-body">
+                <div class="form-inline">
+                    <div class="form-group input-group">
+                        <label for="firstName" class="control-label">Username :</label>
+                        <input id="firstName" type="text" name="firstName" value="" class="form-control" />
+                    </div>
+                    <div class="form-group input-group">
+                        <label for="lastName" class="control-label">Full Name :</label>
+                        <input type="text" name="lastName" value=" " id="lastName" class="form-control" />
+                    </div>
+                </div>
+                <br />
+                <div class="form-inline ">
+                    <div class="form-group input-group">
+                        <label for="role" class="control-label">Model :</label>
+                        <select class="form-control">
+                            <option value=""></option>
+                            <option value="">BMW</option>
+                            <option value="1">Porsche</option>
+                            <option vlaue="2">Mercedes</option>
+                            <option value="3">Mitsubishi</option>
+                            <option value="4">Kia</option>
+                            <option value="5">Toyota</option>
+                        </select>
+                    </div>
+                    <div class="form-group input-group">
+                        <label for="userName" class="control-label">Annee :</label>
+                        <input type="number" name="userName" value=" " id="userName" class="form-control" />
+                    </div>
+
+                </div>
+                <br />
+                <div class="form-inline">
+                    <div class="form-group input-group">
+                        <label for="password" class="control-label">Immariculation :</label>
+                        <input id="password" type="password" name="password" value="" class="form-control" />
+                    </div>
+                    <div class="form-group input-group">
+                        <label for="confirmPass" class="control-label">Couleur :</label>
+                        <input type="password" name="confirmPass" value="" id="confirmPass" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-inline">
+                    <div class="form-group input-group">
+                        <label for="password" class="control-label">Barecode :</label>
+                        <input id="password" type="password" name="password" value="" class="form-control" />
+                    </div>
+                </div>
+            </form>
+            <div class="panel-footer">
+                <button class="btn btn-lg btn-success">Submit</button>
+                <button class="btn btn-lg btn-danger pull-right">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!--footer-->
+    <div class="container">
+        <div class="row">
+        </div>
+        <footer>
+            <div class="row">
+                <div class="col-lg-10"></div>
+                <div class="col-lg-2">
+                    <p>Copyright &copy; CRT-website 2017 &trade;</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../../Plugin/Scripts/angular.min.js"></script>
+    <script src="../../Plugin/js/jquery.js"></script>
+    <script src="../../Plugin/js/bootstrap.min.js"></script>
+    <script src="../../Scripts/app.js"></script>
+</body>
+</html>
