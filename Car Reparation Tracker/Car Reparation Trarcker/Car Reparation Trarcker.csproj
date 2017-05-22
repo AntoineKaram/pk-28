@@ -85,8 +85,9 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
-    <Content Include="View\Images\494c8385f66bd53ffc3049ba8baa8176.jpg" />
-    <Content Include="View\Images\9929b568-9c52-4668-bdcb-4e938f7c7e80.png" />
+    <Content Include="View\Images\image 1.jpg" />
+    <Content Include="View\Images\image 2.jpg" />
+    <Content Include="View\Images\image 3.jpg" />
     <Content Include="View\Plugin\Scripts\angular-mocks.js" />
     <Content Include="View\Plugin\Scripts\angular.js" />
     <Content Include="View\Plugin\Scripts\angular.min.js" />
