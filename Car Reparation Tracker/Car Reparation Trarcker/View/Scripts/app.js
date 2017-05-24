@@ -23,7 +23,7 @@ CRTapp.controller('UserListCtrl', function GetUser($scope, $http, $window) {
     $scope.onEdit = true;
     $scope.show = false;
     $http.get(getUsersUrl).then(function complete(response) {
-        $scope.users = response.data;
+        $scope.users = response.data; 
     });
     $scope.DeleteUser = function (userId) {
         $http.post(RemoveUser, userId).then(function complete(response) {
