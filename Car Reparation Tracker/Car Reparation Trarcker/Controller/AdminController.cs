@@ -14,17 +14,10 @@ namespace CRT.Controller
         [HttpGet]
         public List<User> getUsers( )
         {
-            //if (HttpContext.Current.Session != null)
-            //{
-                return userManager.getUsers();
-            //}
-            //else
-            //{
-                //HttpContext.Current.Response.Redirect("http://localhost:53999/View/Users/Default/index.html");
-                return null;
-            //}
+            return userManager.getUsers();
         }
 
+        [Route("api/Admin/removeUser")]
         [HttpPost]
         public HttpResponseMessage removeUser([FromBody]int userId)
         {
@@ -38,6 +31,7 @@ namespace CRT.Controller
             }
         }
 
+        [Route("api/Admin/addUser")]
         [HttpPost]
         public HttpResponseMessage addUser(User user)
         {
@@ -51,5 +45,18 @@ namespace CRT.Controller
             }
         }
 
+        [Route("api/Admin/editUser")]
+        [HttpPost]
+        public HttpResponseMessage editUser([FromBody]User user)
+        {
+            if (userManager.editUser(user))
+            {
+                return Request.CreateResponse("Succeeded");
+            }
+            else
+            {
+                return Request.CreateResponse("Failed");
+            }
+        }
     }
 }

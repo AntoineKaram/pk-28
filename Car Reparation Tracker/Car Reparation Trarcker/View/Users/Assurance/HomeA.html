@@ -43,10 +43,10 @@
                         <a href="addUser.html">Add User</a>
                     </li>
                     <li>
-                        <a href="contact.html">Cars List</a>
+                        <a href="addCar.html">Add Car</a>
                     </li>
                     <li>
-                        <a href="login.html">Login</a>
+                        <a href="../Default/index.html">Log Out</a>
                     </li>
                 </ul>
             </div>
@@ -82,16 +82,17 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="user in users |filter: $ctrl.query |orderBy:propertyName:reverse ">
+                                <tr ng-repeat="user in users |filter: $ctrl.query |orderBy:propertyName:reverse " class="UserManagement">
                                     <td align="center">
-                                        <a class="btn btn-default" ng-click="EditUser(user.userId)"><em class="fa fa-pencil"></em></a>
+                                        <a class="btn btn-default" ng-click="onUpdate()" ng-show="onEdit"><em class="fa fa-pencil"></em></a>
+                                        <a class="btn btn-default" ng-click="EditUser(user)" ng-show="show"><em class="fa fa-check"></em></a>
                                         <a class="btn btn-danger" ng-click="DeleteUser(user.userId)"><em class="fa fa-trash"></em></a>
                                     </td>
-                                    <td class="hidden-xs">{{user.userId}}</td>
-                                    <td>{{user.Prenom}}</td>
-                                    <td>{{user.Nom}}</td>
-                                    <td>{{user.Username}}</td>
-                                    <td>{{user.Role}}</td>
+                                    <td class="hidden-xs"><input type="text" value="{{user.userId}}" disabled ng-model="user.userId"/></td>
+                                    <td><input type="text" value="{{user.Prenom}}" ng-disabled="onEdit" ng-model="user.Prenom" /></td>
+                                    <td><input type="text" value="{{user.Nom}}" ng-disabled="onEdit"  ng-model="user.Nom"/></td>
+                                    <td><input type="text" value="{{user.Username}}" ng-disabled="onEdit"  ng-model="user.Username"/></td>
+                                    <td><input type="text" value="{{user.Role}}" ng-disabled="onEdit"  ng-model="user.Role"/></td>
                                 </tr>
                             </tbody>
                         </table>

@@ -155,3 +155,6 @@ used to vertically center elements, may need modification if you're not using de
 .sortorder.reverse:after {
   content: '\25bc'; 
 }
+.UserManagement input{
+    width:110px;
+}

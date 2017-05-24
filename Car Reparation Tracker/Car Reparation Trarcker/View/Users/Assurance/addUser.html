@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="CRTapp">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -42,10 +42,10 @@
                         <a href="#">Add User</a>
                     </li>
                     <li>
-                        <a href="addCar.html">Cars List</a>
+                        <a href="addCar.html">Add Car</a>
                     </li>
                     <li>
-                        <a href="#">Login</a>
+                        <a href="../Default/index.html">Log Out</a>
                     </li>
                 </ul>
             </div>
@@ -55,37 +55,37 @@
     </nav>
 
     <!-- Content-->
-    <div class="col-lg-4 col-lg-offset-4">
+    <div class="col-lg-4 col-lg-offset-4" ng-controller="AddUserCtrl">
         <div class="panel panel-default ">
             <div class="panel-heading">
                 <h3 class="col-lg-offset-5">Add User</h3>
             </div>
-            <form class="panel-body">
+            <form class="panel-body" >
                 <div class="form-inline">
                     <div class="form-group input-group">
                         <label for="firstName" class="control-label">First Name :</label>
-                        <input id="firstName" type="text" name="firstName" value="" class="form-control" />
+                        <input id="firstName" type="text" name="firstName" value="" ng-model="user.Prenom" class="form-control" />
                     </div>
                     <div class="form-group input-group">
                         <label for="lastName" class="control-label">Last Name :</label>
-                        <input type="text" name="lastName" value=" " id="lastName" class="form-control" />
+                        <input type="text" name="lastName" value=" " id="lastName" ng-model="user.Nom" class="form-control" />
                     </div>
                 </div>
                 <br />
                 <div class="form-inline ">
                     <div class="form-group input-group">
                         <label for="userName" class="control-label">Username :</label>
-                        <input type="text" name="userName" value=" " id="userName" class="form-control" />
+                        <input type="text" name="userName" value=" " id="userName" ng-model="user.Username" class="form-control" />
                     </div>
                     <div class="form-group input-group">
                         <label for="role" class="control-label">Role :</label>
-                        <select class="form-control">
+                        <select class="form-control" ng-model="user.Role">
                             <option disabled>Role</option>
-                            <option value="1">Expert</option>
-                            <option vlaue="2">Garagiste</option>
-                            <option value="3">Client</option>
-                            <option value="4">Remorque</option>
-                            <option value="5" disabled>Assurance</option>
+                            <option value="Expert">Expert</option>
+                            <option vlaue="Garagist">Garagist</option>
+                            <option value="Client">Client</option>
+                            <option value="Remorque">Remorque</option>
+                            <option value="Assurance" disabled>Assurance</option>
                         </select>
                     </div>
                 </div>
@@ -97,12 +97,12 @@
                     </div>
                     <div class="form-group input-group">
                         <label for="confirmPass" class="control-label">Confirm :</label>
-                        <input type="password" name="confirmPass" value="" id="confirmPass" class="form-control" />
+                        <input type="password" name="confirmPass" value="" id="confirmPass" class="form-control" ng-model="user.Password" />
                     </div>
                 </div>
             </form>
             <div class="panel-footer">
-                <button class="btn btn-lg btn-success">Submit</button>
+                <button class="btn btn-lg btn-success" ng-click="AddUser()">Submit</button>
                 <button class="btn btn-lg btn-danger pull-right">Cancel</button>
             </div>
         </div>

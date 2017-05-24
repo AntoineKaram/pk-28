@@ -35,5 +35,10 @@ namespace CRT.Business
         {
             return _iUserDataManager.addUser(user);
         }
+
+        public bool editUser(User user)
+        {
+            return _iUserDataManager.editUser(user);
+        }
     }
 }

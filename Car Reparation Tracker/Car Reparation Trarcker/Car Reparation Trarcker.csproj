@@ -149,6 +149,9 @@
     <Content Include="View\Users\Assurance\addCar.html" />
     <Content Include="View\Users\Assurance\addUser.html" />
     <Content Include="View\Users\Assurance\HomeA.html" />
+    <Content Include="View\Users\Client\HomeC.html" />
+    <Content Include="View\Users\Default\about.html" />
+    <Content Include="View\Users\Default\contact.html" />
     <Content Include="View\Users\Default\index.html" />
     <Content Include="View\Plugin\js\bootstrap.js" />
     <Content Include="View\Plugin\js\bootstrap.min.js" />
@@ -156,6 +159,10 @@
     <Content Include="View\Plugin\js\jqBootstrapValidation.js" />
     <Content Include="View\Plugin\js\jquery.js" />
     <Content Include="View\Users\Default\MasterPage.html" />
+    <Content Include="View\Users\Default\services.html" />
+    <Content Include="View\Users\Expert\HomeE.html" />
+    <Content Include="View\Users\Garagiste\HomeG.html" />
+    <Content Include="View\Users\Remorque\HomeR.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -172,10 +179,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
-    <Folder Include="View\Users\Client\" />
-    <Folder Include="View\Users\Expert\" />
-    <Folder Include="View\Users\Garagiste\" />
-    <Folder Include="View\Users\Remorque\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Business\Business.csproj">

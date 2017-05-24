@@ -11,5 +11,6 @@ namespace CRT.Data
         List<User> getUsers( );
         bool removeUser(int userId);
         bool addUser(User user);
+        bool editUser(User user);
     }
 }

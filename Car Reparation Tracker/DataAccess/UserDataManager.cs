@@ -14,12 +14,25 @@ namespace CRT.DataAccess
         {
             bool result;
             Dictionary<string, object> dict = new Dictionary<string, object>();
-            dict.Add("@Prenom", user.Nom);
+            dict.Add("@Prenom", user.Prenom);
             dict.Add("@Nom", user.Nom);
             dict.Add("@Username", user.Username);
             dict.Add("@Password", user.Password);
             dict.Add("@role", user.Role);
             result = ExecuteCommand("USP_Insert_User", dict);
+            return result;
+        }
+
+        public bool editUser(User user)
+        {
+            bool result;
+            Dictionary<string, object> dict = new Dictionary<string, object>();
+            dict.Add("@Id", user.userId);
+            dict.Add("@Prenom", user.Prenom);
+            dict.Add("@Nom", user.Nom);
+            dict.Add("@Username", user.Username);
+            dict.Add("@role", user.Role);
+            result = ExecuteCommand("USP_Edit_User", dict);
             return result;
         }
 
