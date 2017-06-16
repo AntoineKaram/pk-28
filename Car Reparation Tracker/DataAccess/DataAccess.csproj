@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CarDataManager.cs" />
     <Compile Include="Data Extensions\DataAccessExtensions.cs" />
     <Compile Include="DataManagerBase.cs" />
     <Compile Include="LoginDataManager.cs" />

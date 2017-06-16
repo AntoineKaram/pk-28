@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="CRTapp">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,16 +36,16 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="about.html">About</a>
+                        <a href="../Default/about.html">About</a>
                     </li>
                     <li>
-                        <a href="services.html">Services</a>
+                        <a href="myCars.html">My Cars</a>
                     </li>
                     <li>
-                        <a href="contact.html">Contact</a>
+                        <a href="../Default/contact.html">Contact</a>
                     </li>
                     <li>
-                        <a href="../Default/index.html">Login</a>
+                        <a href="../Default/index.html">Log out</a>
                     </li>
                 </ul>
             </div>
@@ -53,27 +53,152 @@
         </div>
         <!-- /.container -->
     </nav>
+    <!-- Header Carousel -->
+    <header id="myCarousel" class="carousel slide container">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <div class="fill" style="background-image:url('../../Images/image 2.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2></h2>
+                </div>
+            </div>
+            <div class="item">
+                <div class="fill" style="background-image:url('../../Images/image 1.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2>With you every step of the way</h2>
+                </div>
+            </div>
+            <div class="item">
+                <div class="fill" style="background-image:url('../../Images/image 3.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2>Our technicians know all your cars details</h2>
+                </div>
+            </div>
+        </div>
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+    </header>
+    <br />
+    <!-- Page Content -->
     <div class="container">
         <div class="row">
+            <div class="col-md-4">
+                <div class="panel panel-default" style="height:400px;">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-newspaper-o"></i> News &amp; updates</h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="media">
+                            <div class="media-left">
+                                <img class="media-object" src="../../Plugin/Images/new-tech-savvy-logo_820_2a.png" alt="Responsiveness logo" style="width:80px;">
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">Responsiveness</h4>
+                                <p>Now you can access our website from any device since we made it fully responsive</p>
+                            </div>
+                        </div>
+                        <div class="media">
+                            <div class="media-left">
+                                <img class="media-object" src="../../Plugin/Images/fast_service_care_quality_business-512.png" alt="Fast Service Logo" style="width:80px;">
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">Faster Service</h4>
+                                <p>Our garages have now faster service then ever you can check it by signing in to you account</p>
+                            </div>
+                        </div>
+                        <div class="media">
+                            <div class="media-left">
+                                <img class="media-object" src="../../Plugin/Images/QR_code_Wikimedia_Commons_(URL).png" alt="QR Logo" style="width:80px;">
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">Barecode</h4>
+                                <p>Don't have a barecode scanner simply put your car plate number to make a search</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default" style="height:400px;">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-info-circle"></i> About Us</h4>
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                            Our website offers a vision to the people.
+                        </p>
+                        <p>
+                            We let the customer visualise where his car is
+                            from the minute the accident happens untill he receives the car.
+                        </p>
+                        <p>
+                            Not only we give vision to the custome, we estimate when his car will
+                            be done, how much it is going to cost and what parts have been changed.
+                        </p>
+                        <p>
+                            All you have to do is go to the insurance company and ask for this service
+                            while getting you policy you will get an account and once you sign in you
+                            will get all the info you need about you car.
+                        </p>
+                        <a href="#" class="btn btn-default">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default" style="height:400px;">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-mail-reply"></i>Contact Us</h4>
+                    </div>
+                    <div class="panel-body">
+                        <form class="form-group">
+                            <label for="FullName">Full Name</label>
+                            <input type="text" name="FullName" value="" id="FullName" class="form-control" />
+                            <br />
+                            <label for="Email">Email</label>
+                            <input type="email" name="Email" value="" id="Email" class="form-control" />
+                            <br />
+                            <label for="Description">Description</label>
+                            <textarea class="form-control" id="Description" rows="3"></textarea>
+                            <br />
+                            <input type="submit" name="Submit" value="Submit " class="form-control btn-primary" />
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
+        <!--Footer-->
         <footer>
             <div class="row">
-                <div class="col-lg-10"><h1  style="color:white;">Client Page under construction</h1></div>
+                <div class="col-lg-10"></div>
                 <div class="col-lg-2">
                     <p>Copyright &copy; CRT-website 2017 &trade;</p>
                 </div>
             </div>
         </footer>
     </div>
-
-
+    <!-- /.container -->   
+    <script src="../../Plugin/Scripts/angular.min.js"></script>
     <!-- jQuery -->
     <script src="../../Plugin/js/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="../../Plugin/js/bootstrap.min.js"></script>
+    <!-- app angular -->
+    <script src="../../Scripts/app.js"></script>
     <!-- Script to Activate the Carousel -->
     <script>
-        $('.carousel').carousel({
+    $('.carousel').carousel({
             interval: 5000 //changes the speed
         })
     </script>

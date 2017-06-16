@@ -57,3 +57,23 @@ CRTapp.controller('AddUserCtrl', function AddUser($scope, $http) {
         })
     };
 });
+CRTapp.controller('AddCarCtrl', function AddCar($scope, $http) {
+    $scope.car = {};
+    $scope.AddCar = function () {
+        $http.post('/api/Admin/addCar', $scope.car).then(function complete(response) {
+            alert("user " + $scope.car.username + "'s car added !");
+        })
+    }
+    $http.get('/api/Admin/getMarque').then(function complete(response) {
+        $scope.Marque = response.data;
+    });
+});
+CRTapp.controller('ExpertCtrl', function ExpertCtrl($scope, $http) {
+    $scope.show = false;
+    $scope.search = function () {
+        $http.post('/api/Expert/getCars', JSON.stringify( $scope.immatriculation)).then(function complete(response) {
+            $scope.cars = response.data;
+        });
+        $scope.show = true;
+    }
+});

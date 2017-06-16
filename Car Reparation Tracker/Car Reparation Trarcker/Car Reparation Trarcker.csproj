@@ -150,6 +150,7 @@
     <Content Include="View\Users\Assurance\addUser.html" />
     <Content Include="View\Users\Assurance\HomeA.html" />
     <Content Include="View\Users\Client\HomeC.html" />
+    <Content Include="View\Users\Client\myCars.html" />
     <Content Include="View\Users\Default\about.html" />
     <Content Include="View\Users\Default\contact.html" />
     <Content Include="View\Users\Default\index.html" />
@@ -170,6 +171,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controller\AdminController.cs" />
+    <Compile Include="Controller\ExpertController.cs" />
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

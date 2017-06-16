@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ICarDataManager.cs" />
     <Compile Include="IdbManager.cs" />
     <Compile Include="ILoginDataManager.cs" />
     <Compile Include="IUserDataManager.cs" />
