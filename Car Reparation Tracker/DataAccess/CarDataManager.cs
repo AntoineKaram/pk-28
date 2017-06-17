@@ -14,7 +14,6 @@ namespace CRT.DataAccess
         {
             bool result;
             Dictionary<string, object> dict = new Dictionary<string, object>();
-            dict.Add("@Barecode", car.Barecode);
             dict.Add("@Marque", car.Marque);
             dict.Add("@Username", car.username);
             dict.Add("@Annee", car.Annee);

@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="CRTapp">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,16 +36,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="about.html">About</a>
-                    </li>
-                    <li>
-                        <a href="services.html">Services</a>
-                    </li>
-                    <li>
-                        <a href="contact.html">Contact</a>
-                    </li>
-                    <li>
-                        <a href="../Default/index.html">Login</a>
+                        <a href="../Default/index.html">Log out</a>
                     </li>
                 </ul>
             </div>
@@ -53,12 +44,46 @@
         </div>
         <!-- /.container -->
     </nav>
-    <div class="container">
-        <div class="row">
+    <div class="container" ng-controller="RemorqueCtrl">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3>Search for a car to tow :</h3>
+            </div>
+            <div class="panel-body">
+                <form class="form-inline">
+                    <label>Plate Number</label>
+                    <input type="text" name="immatriculation" value="{{$scope.immatriculation}}" placeholder="123B" class="form-control" ng-model="immatriculation" />
+                    <label>Barecode</label>
+                    <input type="number" name="barecode" value="" placeholder="123132" class="form-control" ng-model="barecode" disabled />
+                    <input type="submit" name="search" value="Search" class="btn-success" ng-click="search()" />
+                </form>
+                <br />
+                <table class="table table-striped table-bordered table-list" ng-show="show">
+                    <thead>
+                        <tr>
+                            <th>Client</th>
+                            <th>Maque and Model</th>
+                            <th>Color</th>
+                            <th>Year of Make</th>
+                            <th>Plate Number</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="car in cars">
+                            <td>{{car.username}}</td>
+                            <td>{{car.Marque}}</td>
+                            <td>{{car.Couleur}}</td>
+                            <td>{{car.Annee}}</td>
+                            <td>{{car.Immatriculation}}</td>
+                            <td><button class="btn-info" ng-click="remorqueVoiture(car.Immatriculation)">Remorque Voiture</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <footer>
             <div class="row">
-                <div class="col-lg-10"><h1  style="color:white;">Remorque Page under construction</h1></div>
                 <div class="col-lg-2">
                     <p>Copyright &copy; CRT-website 2017 &trade;</p>
                 </div>
@@ -67,6 +92,8 @@
     </div>
 
 
+    <script src="../../Plugin/Scripts/angular.js"></script>
+    <script src="../../Scripts/app.js"></script>
     <!-- jQuery -->
     <script src="../../Plugin/js/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->

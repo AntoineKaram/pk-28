@@ -85,6 +85,8 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
+    <Content Include="View\Images\Garage.jpg" />
+    <Content Include="View\Images\Garage.png" />
     <Content Include="View\Images\image 1.jpg" />
     <Content Include="View\Images\image 2.jpg" />
     <Content Include="View\Images\image 3.jpg" />
@@ -160,8 +162,8 @@
     <Content Include="View\Plugin\js\jqBootstrapValidation.js" />
     <Content Include="View\Plugin\js\jquery.js" />
     <Content Include="View\Users\Default\MasterPage.html" />
-    <Content Include="View\Users\Default\services.html" />
     <Content Include="View\Users\Expert\HomeE.html" />
+    <Content Include="View\Users\Garagiste\CarList.html" />
     <Content Include="View\Users\Garagiste\HomeG.html" />
     <Content Include="View\Users\Remorque\HomeR.html" />
     <Content Include="Web.config">
@@ -173,6 +175,9 @@
     <Compile Include="Controller\AdminController.cs" />
     <Compile Include="Controller\ExpertController.cs" />
     <Compile Include="Controller\LoginController.cs" />
+    <Compile Include="Controller\MyCarsController.cs" />
+    <Compile Include="Controller\RemorqueController.cs" />
+    <Compile Include="Controller\SessionController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

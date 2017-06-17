@@ -14,7 +14,7 @@ namespace CRT.Controller
         public string Login(User user)
         {
             User _user = loginManager.Login(user);
-
+            HttpContext.Current.Session["ID"] = _user.userId;
             if (_user.Role.Equals("Assurance"))
             {
                 return "../Assurance/HomeA.html";
@@ -37,6 +37,7 @@ namespace CRT.Controller
             }
             else
             {
+                HttpContext.Current.Session.Clear();
                 return "#";
             }
         }

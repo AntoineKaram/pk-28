@@ -15,5 +15,7 @@ namespace CRT.Models
         public string Immatriculation { get; set; }
         public int userId { get; set; }
         public string username { get; set; }
+        public string status { get; set; }
     }
+
 }

@@ -10,9 +10,9 @@ using System.Web.Http;
 
 namespace CRT.Controller
 {
-    public class ExpertController : ApiController
+    public class RemorqueController : ApiController
     {
-        [Route("api/Expert/getCars")]
+        [Route("api/Remorque/getCars")]
         [HttpPost]
         public List<Car> getCars([FromBody]string immatriculation)
         {
@@ -34,23 +34,23 @@ namespace CRT.Controller
                 cars.Add(car);
             }
             reader.Close();
-            SqlCommand cmd = new SqlCommand("SELECT v.[Immatriculation] ,a.Barecode FROM [ProjetFinal].[dbo].[Voitures] v inner join[ProjetFinal].[dbo].Accident a on a.Barecode = v.Barcode", conn);
+            SqlCommand cmd = new SqlCommand("SELECT v.[Immatriculation] ,a.Barecode FROM [ProjetFinal].[dbo].[Voitures] v inner join[ProjetFinal].[dbo].Accident a on a.Barecode = v.Barcode where v.[Immatriculation] = '"+ immatriculation+"'", conn);
             SqlDataReader rdr = cmd.ExecuteReader();
             while (rdr.Read())
             {
                 string immatriculationTemp = rdr.GetString(0);
                 int count = cars.Count();
-                for(int i =0; i< count;i++)
+                for (int i = 0; i < count; i++)
                 {
-                    if (cars[i].Immatriculation.Equals(immatriculationTemp))
+                    if (!cars[i].Immatriculation.Equals(immatriculationTemp))
                     {
                         cars.Remove(cars[i]);
                     }
                 }
             }
-            
+
             conn.Close();
-            if(cars.Count > 0)
+            if (cars.Count > 0)
             {
                 return cars;
             }
@@ -59,16 +59,15 @@ namespace CRT.Controller
                 return null;
             }
         }
-        [Route("api/Expert/createAccident")]
+
+        [Route("api/Remorque/debutRemorque")]
         [HttpPost]
-        public bool createAccident([FromBody]string immatriculation)
+        public bool debutRemorque([FromBody]string immatriculation)
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SqlCon"].ConnectionString);
             conn.Open();
-            SqlCommand command = new SqlCommand("USP_Insert_Accident", conn);
-            command.CommandType = System.Data.CommandType.StoredProcedure;
-            command.Parameters.AddWithValue("@Immatriculation", immatriculation);
-            SqlCommand command2 = new SqlCommand("UPDATE Voitures SET Statut = 2 where Immatriculation = '" + immatriculation + "'",conn);
+            SqlCommand command = new SqlCommand("UPDATE Accident SET Debut_Remorque = SYSDATETIME() where Barecode = (select Barcode from Voitures where Immatriculation = '"+immatriculation+"')", conn);
+            SqlCommand command2 = new SqlCommand("UPDATE Voitures SET Statut = 3 where Immatriculation = '" + immatriculation + "'",conn);
             int result = command.ExecuteNonQuery();
             command2.ExecuteNonQuery();
             conn.Close();

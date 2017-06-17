@@ -30,22 +30,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Car Reparation Tracker</a>
+                <a class="navbar-brand" href="../Default/index.html">Car Reparation Tracker</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="about.html">About</a>
-                    </li>
-                    <li>
-                        <a href="services.html">Services</a>
-                    </li>
-                    <li>
-                        <a href="contact.html">Contact</a>
-                    </li>
-                    <li>
-                        <a href="../Default/index.html">Login</a>
+                        <a href="../Default/index.html">Log out</a>
                     </li>
                 </ul>
             </div>
@@ -61,9 +52,9 @@
             <div class="panel-body">
                 <form class="form-inline">
                     <label>Plate Number</label>
-                    <input type="text" name="immatriculation" value=" " placeholder="123 B" class="form-control" ng-model="immatriculation" />
+                    <input type="text" name="immatriculation" value="{{$scope.immatriculation}}" placeholder="123B" class="form-control" ng-model="immatriculation" />
                     <label>Barecode</label>
-                    <input type="number" name="barecode" value=" " placeholder="123132" class="form-control" ng-model="barecode" disabled />
+                    <input type="number" name="barecode" value="" placeholder="123132" class="form-control" ng-model="barecode" disabled />
                     <input type="submit" name="search" value="Search" class="btn-success" ng-click="search()" />
                 </form>
                 <br />
@@ -85,7 +76,7 @@
                             <td>{{car.Couleur}}</td>
                             <td>{{car.Annee}}</td>
                             <td>{{car.Immatriculation}}</td>
-                            <td><button class="btn-info">Declare Accident</button></td>
+                            <td><button class="btn-info" ng-click="declareAccident(car.Immatriculation)">Declare Accident</button></td>
                         </tr>
                     </tbody>
                 </table>
