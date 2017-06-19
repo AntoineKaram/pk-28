@@ -18,7 +18,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body>
+<body  ng-controller="myCarsCtrl">
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -39,7 +39,7 @@
                         <a href="#">My Cars</a>
                     </li>
                     <li>
-                        <a href="../Default/index.html">Log out</a>
+                        <a ng-click="logOut()">Log out</a>
                     </li>
                 </ul>
             </div>
@@ -49,7 +49,7 @@
     </nav>
     <div class="row">
         <div class="row">
-            <div class="col-md-10 col-md-offset-1" ng-controller="myCarsCtrl">
+            <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default panel-table">
                     <div class="panel-heading">
                         <div class="row">
@@ -72,6 +72,9 @@
                                     <th>Year of make</th>
                                     <th>Color</th>
                                     <th>Status</th>
+                                    <th>Accident Date</th>
+                                    <th>Reparation start date</th>
+                                    <th>Estimated end date</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -82,6 +85,9 @@
                                     <th>{{car.Annee}}</th>
                                     <th>{{car.Couleur}}</th>
                                     <th>{{car.status}}</th>
+                                    <th>{{car.dateAccident == "0001-01-01T00:00:00" ? "no date yet" : car.dateAccident | date:'dd/MM/yyyy'}}</th>
+                                    <th>{{car.debutReparationDate == "0001-01-01T00:00:00" ? "no date yet" :car.debutReparationDate | date:'dd/MM/yyyy'}}</th>
+                                    <th>{{car.estimeeFinReparation == "0001-01-01T00:00:00" ? "no date yet" :car.estimeeFinReparation| date:'dd/MM/yyyy' }}</th>
                                 </tr>
                             </tbody>
                         </table>

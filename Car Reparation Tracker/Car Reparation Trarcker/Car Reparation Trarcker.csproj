@@ -151,6 +151,7 @@
     <Content Include="View\Users\Assurance\addCar.html" />
     <Content Include="View\Users\Assurance\addUser.html" />
     <Content Include="View\Users\Assurance\HomeA.html" />
+    <Content Include="View\Users\Assurance\indexA.html" />
     <Content Include="View\Users\Client\HomeC.html" />
     <Content Include="View\Users\Client\myCars.html" />
     <Content Include="View\Users\Default\about.html" />
@@ -163,6 +164,7 @@
     <Content Include="View\Plugin\js\jquery.js" />
     <Content Include="View\Users\Default\MasterPage.html" />
     <Content Include="View\Users\Expert\HomeE.html" />
+    <Content Include="View\Users\Garagiste\AddCar.html" />
     <Content Include="View\Users\Garagiste\CarList.html" />
     <Content Include="View\Users\Garagiste\HomeG.html" />
     <Content Include="View\Users\Remorque\HomeR.html" />
@@ -174,6 +176,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controller\AdminController.cs" />
     <Compile Include="Controller\ExpertController.cs" />
+    <Compile Include="Controller\GaragisteController.cs" />
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="Controller\MyCarsController.cs" />
     <Compile Include="Controller\RemorqueController.cs" />

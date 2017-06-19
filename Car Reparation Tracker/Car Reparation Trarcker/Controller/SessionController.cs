@@ -22,5 +22,12 @@ namespace CRT.Controller
                 return "#";
             }
         }
+        [Route("api/Session/removeAuth")]
+        [HttpGet]
+        public string removeAuth()
+        {
+            HttpContext.Current.Session.Clear();
+            return "../Default/index.html";
+        }
     }
 }

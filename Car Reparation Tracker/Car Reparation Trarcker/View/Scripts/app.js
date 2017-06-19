@@ -14,8 +14,11 @@ CRTapp.controller('LoginCtrl', function Login($scope, $http, $window) {
     $scope.LoginRequest = function () {
         $http.post(LoginUrl, $scope.user).then(function complete(response) {
             $scope.user = null;
+            if (response.data == '#') {
+                alert("wrong username or password please try again");
+            }
             $window.location.href = response.data;
-        })   
+        })
     }
 });
 CRTapp.controller('UserListCtrl', function GetUser($scope, $http, $window) {
@@ -26,7 +29,7 @@ CRTapp.controller('UserListCtrl', function GetUser($scope, $http, $window) {
     $scope.onEdit = true;
     $scope.show = false;
     $http.get(getUsersUrl).then(function complete(response) {
-        $scope.users = response.data; 
+        $scope.users = response.data;
     });
     $scope.DeleteUser = function (userId) {
         $http.post(RemoveUser, userId).then(function complete(response) {
@@ -47,15 +50,25 @@ CRTapp.controller('UserListCtrl', function GetUser($scope, $http, $window) {
         $scope.onEdit = false;
         $scope.show = true;
     }
+    $scope.logOut = function () {
+        $http.get('/api/Session/removeAuth').then(function complete(response) {
+            $window.location.href = response.data;
+        })
+    }
     $scope.sortBy = function (propertyName) {
         $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
         $scope.propertyName = propertyName;
     };
 });
-CRTapp.controller('AddUserCtrl', function AddUser($scope, $http,$window) {
+CRTapp.controller('AddUserCtrl', function AddUser($scope, $http, $window) {
     $http.get('/api/Session/getAuth').then(function complete(response) {
         $window.location.href = response.data;
     });
+    $scope.logOut = function () {
+        $http.get('/api/Session/removeAuth').then(function complete(response) {
+            $window.location.href = response.data;
+        })
+    }
     $scope.user = {};
     $scope.AddUser = function () {
         $http.post('/api/Admin/addUser', $scope.user).then(function complete(response) {
@@ -63,8 +76,13 @@ CRTapp.controller('AddUserCtrl', function AddUser($scope, $http,$window) {
         })
     };
 });
-CRTapp.controller('AddCarCtrl', function AddCar($scope, $http,$window) {
+CRTapp.controller('AddCarCtrl', function AddCar($scope, $http, $window) {
     $scope.car = {};
+    $scope.logOut = function () {
+        $http.get('/api/Session/removeAuth').then(function complete(response) {
+            $window.location.href = response.data;
+        })
+    }
     $http.get('/api/Session/getAuth').then(function complete(response) {
         $window.location.href = response.data;
     });
@@ -77,8 +95,12 @@ CRTapp.controller('AddCarCtrl', function AddCar($scope, $http,$window) {
         $scope.Marque = response.data;
     });
 });
-CRTapp.controller('ExpertCtrl', function ExpertCtrl($scope, $http,$window) {
-
+CRTapp.controller('ExpertCtrl', function ExpertCtrl($scope, $http, $window) {
+    $scope.logOut = function () {
+        $http.get('/api/Session/removeAuth').then(function complete(response) {
+            $window.location.href = response.data;
+        })
+    }
     $scope.show = false;
     $http.get('/api/Session/getAuth').then(function complete(response) {
         $window.location.href = response.data;
@@ -94,7 +116,7 @@ CRTapp.controller('ExpertCtrl', function ExpertCtrl($scope, $http,$window) {
                 $scope.show = false;
             }
         });
-       
+
     };
     $scope.declareAccident = function (immatriculation) {
         $http.post('/api/Expert/createAccident', JSON.stringify(immatriculation)).then(function complete(response) {
@@ -105,8 +127,13 @@ CRTapp.controller('ExpertCtrl', function ExpertCtrl($scope, $http,$window) {
         });
     }
 });
-CRTapp.controller('RemorqueCtrl', function RemorqueCtrl($scope, $http ,$window) {
+CRTapp.controller('RemorqueCtrl', function RemorqueCtrl($scope, $http, $window) {
     $scope.show = false;
+    $scope.logOut = function () {
+        $http.get('/api/Session/removeAuth').then(function complete(response) {
+            $window.location.href = response.data;
+        })
+    }
     $http.get('/api/Session/getAuth').then(function complete(response) {
         $window.location.href = response.data;
     });
@@ -129,23 +156,65 @@ CRTapp.controller('RemorqueCtrl', function RemorqueCtrl($scope, $http ,$window) 
             $scope.cars = [{}];
             $scope.immatriculation = "";
             $scope.show = false;
-            
+
         });
     }
 })
-CRTapp.controller('myCarsCtrl', function myCarsCtrl($scope, $http,$window) {
+CRTapp.controller('myCarsCtrl', function myCarsCtrl($scope, $http, $window) {
     $http.get('/api/Session/getAuth').then(function complete(response) {
         $window.location.href = response.data;
     });
+    $scope.logOut = function () {
+        $http.get('/api/Session/removeAuth').then(function complete(response) {
+            $window.location.href = response.data;
+        })
+    }
     $scope.cars = {};
     $http.get('/api/MyCars/getCars').then(function complete(response) {
         $scope.cars = response.data;
     });
 
 });
-CRTapp.controller('CarListCtrl', function CarListCtrl($scope, $http) {
+CRTapp.controller('CarListCtrl', function CarListCtrl($scope, $http, $window) {
+    $scope.edit = false;
+    $scope.logOut = function () {
+        $http.get('/api/Session/removeAuth').then(function complete(response) {
+            $window.location.href = response.data;
+        })
+    }
     $scope.cars = {};
-    $http.get('/api/Garagiste/getCars').then(function complete(response) {
-        $scope.cars = response.data;
-    })
-})
+    $scope.Rep = {};
+    $scope.onEdit = function () {
+        $scope.edit = true;
+    }
+    $http.get('/api/Session/getAuth').then(function complete(response) {
+        $window.location.href = response.data;
+    });
+    getCars();
+    function getCars() {
+        $http.get('/api/Garagiste/getCars').then(function complete(response) {
+            $scope.cars = response.data;
+        })
+    }
+    $scope.onSaveStade = function (barecode) {
+        var status = $scope.Rep.status;
+        alert(status);
+        var Indata = {status :status,barecode :barecode};
+        $http.post('/api/Garagiste/saveStatus',Indata).then(function complete(response) {
+            $scope.edit = false;
+            getCars();
+        })
+    }
+    $scope.onEndReparation = function (barecode) {
+        $http.post('/api/Garagiste/EndReparation', barecode).then(function complete(response) {
+            $scope.edit = false;
+            getCars();
+        })
+    }
+    $scope.car = {};
+    $scope.addcar = function () {
+        $http.post('/api/Garagiste/addCar', $scope.car).then(function complete(response) {
+            $window.location.href = 'CarList.html';
+        })
+    }
+});

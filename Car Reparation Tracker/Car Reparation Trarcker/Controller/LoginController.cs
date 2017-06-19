@@ -15,9 +15,10 @@ namespace CRT.Controller
         {
             User _user = loginManager.Login(user);
             HttpContext.Current.Session["ID"] = _user.userId;
+            HttpContext.Current.Session["Role"] = _user.Role;
             if (_user.Role.Equals("Assurance"))
             {
-                return "../Assurance/HomeA.html";
+                return "../Assurance/indexA.html";
             }
             else if (_user.Role.Equals("Expert") )
             {

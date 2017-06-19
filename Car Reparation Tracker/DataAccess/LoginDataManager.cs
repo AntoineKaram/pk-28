@@ -15,7 +15,7 @@ namespace CRT.DataAccess
             Dictionary<string, object> dict = new Dictionary<string, object>();
             dict.Add("@Username", user.Username);
             dict.Add("@Password", user.Password);
-            User userInfo = ExecuteSingleton<User>("USP_Login",
+            List<User> userInfo = ExecuteCollection<User>("USP_Login",
                 (reader) =>
                 {
                     User tempUser = new User()
@@ -30,7 +30,14 @@ namespace CRT.DataAccess
                     };
                     return tempUser;
                 }, dict);
-            return userInfo;
+            if (userInfo.Count > 0)
+            {
+                return userInfo[0];
+            }
+            else
+            {
+                return new User() { Role = "", userId=0 };
+            }
         }
     }
 }

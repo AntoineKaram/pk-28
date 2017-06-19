@@ -22,7 +22,7 @@ namespace CRT.Controller
             List<Car> cars = new List<Car>();
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SqlCon"].ConnectionString);
             conn.Open();
-            SqlCommand command = new SqlCommand("Select v.Barcode,v.Couleur,v.Annee,v.Immatriculation,m.Marque,s.[status] from Voitures v inner join Marque m on m.MarqueId = v.MarqueId inner join statut s on s.status_Id = v.Statut where v.User_Id = '"+userId+"'", conn);
+            SqlCommand command = new SqlCommand("Select v.Barcode,v.Couleur,v.Annee,v.Immatriculation,m.Marque,s.[status],a.Date_Accident,a.Debut_Reparation,a.EstimeeFinReparation from Voitures v inner join Marque m on m.MarqueId = v.MarqueId inner join statut s on s.status_Id = v.Statut inner join Accident a on a.Barecode = v.Barcode where v.User_Id = '"+userId+"'", conn);
             SqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
@@ -33,6 +33,9 @@ namespace CRT.Controller
                 car.Immatriculation = reader.GetString(3);
                 car.Marque = reader.GetString(4);
                 car.status = reader.GetString(5);
+                car.dateAccident = reader.IsDBNull(6) ? new DateTime(): reader.GetDateTime(6);
+                car.debutReparationDate = reader.IsDBNull(7) ? new DateTime() : reader.GetDateTime(7);
+                car.estimeeFinReparation = reader.IsDBNull(8) ? new DateTime() : reader.GetDateTime(8);
                 cars.Add(car);
             }
             conn.Close();

@@ -16,6 +16,9 @@ namespace CRT.Models
         public int userId { get; set; }
         public string username { get; set; }
         public string status { get; set; }
+        public DateTime dateAccident { get; set; }
+        public DateTime debutReparationDate { get; set; }
+        public DateTime estimeeFinReparation { get; set; }
     }
 
 }
